@@ -34,6 +34,10 @@ def villains_cards():
 def add_villain():
    return render_template("addvillain.html", errors=[])
 
+@app.route("/delete", methods=["GET"])
+def delete_villain():
+  return render_template("deletevillain.html", errors=[])
+
 
 @app.route("/addVillain", methods=["POST"])
 def add_user():
@@ -61,6 +65,17 @@ def add_user():
      db.session.add(new_villain)
      db.session.commit()
      return render_template("villain.html", villains=Villain.query.all())
+   
+@app.route("/deleteVillain", methods=["POST"])
+def delete_user():
+  name = request.form.get("name")
+  villain = Villain.query.filter_by(name=name).first()
+  if villain:
+    db.session.delete(villain)
+    db.session.commit()
+    return render_template("villain.html", villains=Villain.query.all())
+  else:
+    return render_template("deletevillain.html", errors=["Oopse! That villain doesn't exist!"])
       
 
 # Run the flask server

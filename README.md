@@ -1,67 +1,107 @@
-# Install Python
+# 🃏 Villain Trading Cards Project
 
-Check to see if you already have Python installed on your system by running:
+This repository contains a progressive Flask project that builds a villain trading card web application across three branches. Each branch represents a new step in functionality and learning — from static templates to a full database-driven site.
 
-On a Mac:
-`python3 --version`
+---
 
-On Windows:
-`python --version`
+## 📚 Table of Contents
 
-If you already have Python installed, check to be sure it’s Python 3.8 or up. (For example, 3.11 is great!) We suggest waiting on 3.12 to give any dependencies time to be updated.
+- [📂 Branches Overview](#-branches-overview)
+- [🔎 Branch-Specifics](#-branch-specifics)
+- [🦹‍♂️ Project Background](#-project-background)
+- [📦 Requirements](#-requirements)
+- [🚀 Getting Started](#-getting-started)
 
-If you are using a Windows machine, it is possible that you don’t have Python installed. You’ll need to pause here for a moment and proceed to install it. See this document for more [information](https://docs.google.com/document/d/14diNu_g6uhouBscRt8zIezolANTRQA6HobKRP4Lgu5Q/copy).
+---
 
-# Setting up to run scripts to work with Python.
+## 📂 Branches Overview
 
-The script will be run in a virtual environment. Start by creating a virtual environment. Navigate to to the project folder in the command line and run:
+| Branch            | Description                                                |
+|------------------|------------------------------------------------------------|
+| `template-layout`| Base layout with Flask routing and HTML template rendering |
+| `static-site`    | Adds CSS, images, and static file handling                 |
+| `with-database`  | Connects to a SQLite database using Flask-SQLAlchemy       |
 
-On a Mac:
-`python3 -m venv venv`
+---
 
-On Windows:
-`python -m venv venv`
+## 🔎 Branch-Specifics
 
-<br>
-After creating the virtual environment, you need to activate it:
+### 🔹 `template-layout`
+- The simplest starting point  
+- Renders a single villain card from a Python dictionary  
+- No styling or database involved  
 
-On a Mac:
-`source venv/bin/activate`
+### 🔹 `static-site`
+- Adds static assets like CSS and images  
+- Improves visual layout and card design  
 
-On Windows:
-`source venv/Scripts/activate`
+### 🔹 `with-database`
+- Uses Flask-SQLAlchemy to store and retrieve villain data  
+- Villains are no longer hardcoded — pulled from a SQLite database  
 
-<br>
-Once the virtual environment is activated, the beginning of your terminal prompt should display (venv).
+---
 
-<br>
-Install the modules by running (in both a Mac and Windows):
+## 🦹‍♂️ Project Background
 
-`pip install flask flask-sqlalchemy`
+This project was part of Skillcrush's "Using Python to Build Web Apps" lesson. Through the materials and assistance Skillcrush provided, I practiced coding a web app that allows the user to fill out a form and add a new supervillain card. That information is saved in a SQL database. The app is built with Flask and uses Flask-SQLAlchemy to work with the database. It uses routes and HTTP methods to send and receive data between the front end and back end, as well as Jinja templates to display the data on web pages.
 
-You'll see a venv folder has been added to the directory with all of the installed dependencies.
+---
 
-<br>
+## 📦 Requirements
 
-To run your code, in the command line run:
+- Python 3.8 or higher
+- Flask
+- Flask-SQLAlchemy
 
-Without a debugger:
-`flask run`
+Install requirements with:
 
-With a debugger:
-`flask run --debug`
+```bash
+pip install -r requirements.txt
+```
 
-<br>
+## 🚀 Getting Started
 
-The app will run at: http://127.0.0.1:5000/
+These instructions will help you run the app in **any of the three branches**. Open your command line and follow these steps:
 
-<br>
+### 1. Clone the repository and navigate to it
 
-To stop the run, click control + C. When making changes to your Python, HTML, or JavaScript code (and not using debugger) you'll need to stop the run after each change. After restarting the server, hard refresh the page.
+```bash
+git clone https://github.com/jesteffes/villain-trading-cards-template.git
+cd villain-trading-cards-template
+```
+### 2. Check out the branch you want to interact with:
 
-<br>
-When finished, quit the run by clicking control + C and close the virtual environment by running:
+```bash
+git checkout with-database  # or static-site, or template-layout
+```
+### 3. Create and activate a virtual environment:
+**Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+ ```
+ **Mac/Linux:**
+ ```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+### 4. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+### 5. Run the app:
+```bash
+flask run
+```
 
-`deactivate`
 
-<br>
+---
+Then open your browser at: http://127.0.0.1:5000
+
+To stop the server, press Ctrl + C.
+
+To exit the virtual environment, run:
+```
+deactivate
+```
+
